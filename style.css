@@ -1,0 +1,203 @@
+* { /*Forma de resetar as margens e bordas (retirando margns bordas automaticas)*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Criando light modo(modo claro da pagina com duas variaveis :root{} e o .light{}) */
+:root {
+    --text-color: white;  
+    --bg-url: url(./assets/assets/bg-mobile.jpg); 
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.Light {
+    --text-color: black;
+    --bg-url: url(./assets/assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/assets/sun.svg);
+
+}
+
+body {
+    /*
+background-image: url(./assets/assets/bg-mobile.jpg);
+background-repeat: no-repeat;
+background-position:top center;
+background-size: cover;
+*/
+
+/*background color imagem reapeat position/size (isso é um atalho)*/
+/*background: url(./assets/assets/bg-mobile.jpg)no-repeat top center/cover; (base inicial)*/
+background: var(--bg-url) top center/cover;/* vira padrão para todas imagens*/
+}
+
+/* Defino o formato do texto e o peso que foi baixado a fonte do fonts.google.com */
+body *{
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);/*vira padrão para todas as cores do texto*/
+}
+
+#container{
+    width: 360px;
+    /*height: 712px;(usado para definir o projeto)*/
+    /*border: 1px solid red;(não será mais utilizada)*/
+    margin: 56px auto 0px;
+    /*padding-top: 56px; pode ser essa propriedade */
+    /* (Codigo extenso que podemos simplificar resumindo pelo margin: 56px auto 0px;)
+    margin-top: 56px;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto; */
+    padding: 0px 24px;
+
+}
+/* profile */
+
+#profile{
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img {
+/*display: block;(posso usar esse para centralizar)*/
+width: 112px;
+/*margin: auto;(usado junto com o display: block;)*/
+}
+
+#profile p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+/*switch*/
+#switch {
+    /*border: 1px solid red; base do button*/
+    position: relative;
+    width: 64px;
+
+    margin: 4px auto;
+}
+
+#switch button{
+width: 32px;
+height: 32px;
+/*background: white url(./assets/moon-stars.svg) no-repeat center; Base inicial*/
+background: white var(--switch-bg-url) no-repeat center;
+border: 0;
+border-radius: 50%;
+
+position: absolute;
+top: 50%;
+left: 0;
+z-index: 1;
+transform: translateY(-50%);
+}
+
+.Light #switch button {
+right: 0;
+left: initial;
+
+}
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+
+    /* surface-color-dark-mode */
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/*Links-listas*/
+
+ul{
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    padding: 24px 0px;
+
+}
+
+ul li a {
+    /*border: 1px solid red; (para poder ter base das bordas) */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px  24px;
+
+    /*background: rgba(255, 255, 255, 0.1); Base inicial */
+    background: var(--surface-color);
+    /*border: 1px solid rgba(255, 255, 255, 0.5); Base inicial*/
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: background 0.2s;
+}
+
+/*pseudo-selector */
+ul li a:hover {
+    /*background: rgba(255, 255, 255, 0.05); Base inicial*/
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+/* social links (baixado os codigos do site ionicons) */
+#social-links {
+    display: flex;
+    justify-content: center;
+    /*gap: 16px; (foi utilizado para poder ter uma base do espaçamento) */
+
+    padding: 24px 0px;
+
+    font-size: 24px;
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+
+    transition: background 0.2s;
+    border-radius: 50%;
+
+}
+
+#social-links a:hover {
+    /*background: rgba(255, 255, 255, 0.2); Base inicial */
+    background: var(--highlight-color);
+    padding: 16px;
+
+}
+
+/* Criando um rodapé ao final da pagina com o site do mesmo (usando footer) */
+footer {
+    padding: 24px 0px;
+    text-align: center;
+    font-size: 14px;
+}
