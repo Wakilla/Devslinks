@@ -37,6 +37,7 @@ background-size: cover;
 /*background color imagem reapeat position/size (isso é um atalho)*/
 /*background: url(./assets/assets/bg-mobile.jpg)no-repeat top center/cover; (base inicial)*/
 background: var(--bg-url) top center/cover;/* vira padrão para todas imagens*/
+height: 100vh;
 }
 
 /* Defino o formato do texto e o peso que foi baixado a fonte do fonts.google.com */
@@ -201,4 +202,16 @@ footer {
     padding: 24px 0px;
     text-align: center;
     font-size: 14px;
+}
+
+
+/* media queries */
+@media (min-width: 700px) {
+    :root {
+        --bg-url: url(./assets/assets/bg-desktop.jpg);
+    }
+
+    .Light{
+        --bg-url: url(./assets/assets/bg-desktop-light.jpg);
+    }
 }
